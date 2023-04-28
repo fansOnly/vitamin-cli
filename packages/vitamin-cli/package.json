@@ -1,0 +1,43 @@
+{
+  "name": "vitamin-cli",
+  "version": "1.0.0",
+  "description": "a magic experimental cli tool",
+  "main": "./src/index.js",
+  "bin": {
+    "create-demo": "./dist/out.cjs"
+  },
+  "files": [
+    "./dist/out.cjs"
+  ],
+  "scripts": {
+    "build": "rimraf dist && node ./build.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "keywords": [
+    "cli",
+    "custom",
+    "web"
+  ],
+  "author": "fans_only",
+  "license": "ISC",
+  "devDependencies": {
+    "@octokit/request": "^6.2.3",
+    "chalk": "^4.1.2",
+    "download": "^8.0.0",
+    "esbuild": "^0.17.18",
+    "gradient-string": "^2.0.2",
+    "minimist": "^1.2.8",
+    "ora": "^6.3.0",
+    "prompts": "^2.4.2",
+    "rimraf": "^5.0.0"
+  },
+  "engines": {
+    "node": "^14.18.0 || >=16.0.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue,json}": [
+      "prettier --write"
+    ]
+  }
+}

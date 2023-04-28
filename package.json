@@ -1,0 +1,40 @@
+{
+  "name": "vitamin-cli",
+  "private": true,
+  "packageManager": "pnpm@8.3.1",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky install",
+    "format": "prettier --write --cache .",
+    "lint": "eslint --cache .",
+    "build": "pnpm -r --filter='./packages/*' run build",
+    "prepublish": "node ./scripts/prepublish.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "keywords": [
+    "cli",
+    "custom",
+    "web"
+  ],
+  "author": "fans_only",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8",
+    "rimraf": "^5.0.0",
+    "zx": "^7.2.1"
+  },
+  "engines": {
+    "node": "^14.18.0 || >=16.0.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue,json}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "vitamin-cli": "workspace:^"
+  }
+}

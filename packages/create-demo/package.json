@@ -1,0 +1,26 @@
+{
+  "name": "@vitamin/create-demo",
+  "version": "1.0.0",
+  "description": "a magic experimental cli tool",
+  "main": "packages/vitamin-cli/index.js",
+  "bin": {
+    "create-demo": "outfile.cjs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "keywords": [
+    "cli",
+    "custom",
+    "web"
+  ],
+  "author": "fans_only",
+  "license": "ISC",
+  "devDependencies": {},
+  "lint-staged": {
+    "*.{js,ts,vue,json}": [
+      "prettier --write"
+    ]
+  }
+}
