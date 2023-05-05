@@ -20,6 +20,7 @@
   "author": "fans_only",
   "license": "ISC",
   "devDependencies": {
+    "conventional-changelog-cli": "^2.2.2",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
     "prettier": "^2.8.8",
