@@ -11,12 +11,18 @@ importers:
       conventional-changelog-cli:
         specifier: ^2.2.2
         version: registry.npmmirror.com/conventional-changelog-cli@2.2.2
+      execa:
+        specifier: ^7.1.1
+        version: registry.npmmirror.com/execa@7.1.1
       husky:
         specifier: ^8.0.3
         version: registry.npmmirror.com/husky@8.0.3
       lint-staged:
         specifier: ^13.2.2
         version: registry.npmmirror.com/lint-staged@13.2.2
+      picocolors:
+        specifier: ^1.0.0
+        version: registry.npmmirror.com/picocolors@1.0.0
       prettier:
         specifier: ^2.8.8
         version: registry.npmmirror.com/prettier@2.8.8
@@ -46,6 +52,9 @@ importers:
       gradient-string:
         specifier: ^2.0.2
         version: registry.npmmirror.com/gradient-string@2.0.2
+      kolorist:
+        specifier: ^1.8.0
+        version: registry.npmmirror.com/kolorist@1.8.0
       minimist:
         specifier: ^1.2.8
         version: registry.npmmirror.com/minimist@1.2.8
@@ -2149,6 +2158,12 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  registry.npmmirror.com/kolorist@1.8.0:
+    resolution: {integrity: sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/kolorist/-/kolorist-1.8.0.tgz}
+    name: kolorist
+    version: 1.8.0
+    dev: true
+
   registry.npmmirror.com/lilconfig@2.1.0:
     resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/lilconfig/-/lilconfig-2.1.0.tgz}
     name: lilconfig
@@ -2801,6 +2816,12 @@ packages:
     resolution: {integrity: sha512-F3asv42UuXchdzt+xXqfW1OGlVBe+mxa2mqI0pg5yAHZPvFmY3Y6drSf/GQ1A86WgWEN9Kzh/WrgKa6iGcHXLg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/pend/-/pend-1.2.0.tgz}
     name: pend
     version: 1.2.0
+    dev: true
+
+  registry.npmmirror.com/picocolors@1.0.0:
+    resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/picocolors/-/picocolors-1.0.0.tgz}
+    name: picocolors
+    version: 1.0.0
     dev: true
 
   registry.npmmirror.com/picomatch@2.3.1:
