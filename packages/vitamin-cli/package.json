@@ -11,7 +11,6 @@
   ],
   "scripts": {
     "build": "rimraf dist && node ./build.config.js",
-    "release": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
@@ -28,6 +27,7 @@
     "download": "^8.0.0",
     "esbuild": "^0.17.18",
     "gradient-string": "^2.0.2",
+    "kolorist": "^1.8.0",
     "minimist": "^1.2.8",
     "ora": "^6.3.0",
     "prompts": "^2.4.2",

@@ -42,7 +42,7 @@ export const generateUrl = (username, repository, branch) => {
 };
 
 export const downloadTemplate = async (url, path) => {
-  console.log();
+  console.log(`\nDownload from remote ${url}\n`);
   const spinner = ora("Start download project...").start();
   setTimeout(() => {
     spinner.text = `${chalk.cyan(

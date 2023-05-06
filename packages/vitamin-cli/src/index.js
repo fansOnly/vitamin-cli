@@ -1,11 +1,15 @@
+import * as path from "node:path";
 import prompts from "prompts";
 import minimist from "minimist";
+import { red } from "kolorist";
 import * as banner from "../utils/banner.js";
 import {
   getGitRepoBranchList,
   generateUrl,
   downloadTemplate,
 } from "../utils/download.js";
+import { getPresetTemplates } from "../utils/getPresetTemplates.js";
+import { copyTemplate } from "../utils/copyTemplate.js";
 
 async function init() {
   // 打印 logo
@@ -26,20 +30,40 @@ async function init() {
     // all arguments are treated as booleans
     boolean: true,
   });
-  // console.log('[debug] argv: ', argv);
+  console.log("[debug] argv: ", argv);
+
+  // 获取模板列表
+  const getTemplateList = async (type = "preset") => {
+    if (type === "git") {
+      // 获取仓库全部分支模板
+      return await getGitRepoBranchList();
+    } else {
+      // 获取全部预设模板
+      return getPresetTemplates();
+    }
+  };
 
   let result;
-
-  // 获取仓库全部 branch
-  const branchList = await getGitRepoBranchList();
+  const cwd = process.cwd();
+  const output = path.resolve(cwd, "dist");
 
   const questions = [
     {
       type: "select",
-      name: "branch",
-      message: "请选择一个分支",
-      choices: branchList,
-      initial: 1,
+      name: "source",
+      message: "请选择模板地址",
+      choices: [
+        { title: "Preset", value: "preset", description: "从预设模版下载" },
+        { title: "Github", value: "git", description: "从 Github 仓库下载" },
+      ],
+      initial: 0,
+    },
+    {
+      type: "select",
+      name: "template",
+      message: "请选择一个模版",
+      choices: (prev) => getTemplateList(prev),
+      initial: 0,
     },
     {
       type: "confirm",
@@ -57,10 +81,17 @@ async function init() {
     });
     console.log("[debug] result:: ", result);
 
-    const gitUrl = generateUrl("fansOnly", "uni-template", result.branch);
-    console.log("[debug] gitUrl: ", gitUrl);
-    // 下载
-    downloadTemplate(gitUrl, "dist");
+    if (!result.confirm) return;
+
+    if (result.source === "git") {
+      // 1. download from github
+      const gitUrl = generateUrl("fansOnly", "uni-template", result.template);
+      downloadTemplate(gitUrl, output);
+    } else if (result.source === "preset") {
+      // 2. copy template from preset
+      const targetPath = path.resolve(cwd, `../create-demo/${result.template}`);
+      copyTemplate(targetPath, output);
+    }
   } catch (error) {
     console.log(error);
     process.exit(1);
