@@ -19,6 +19,8 @@ jobs:
 
             - name: Commit changes
               run: |
+                  git config --global user.email "251115151@qq.com"
+                  git config --global user.name "fansonly"
                   git add .
                   git commit -m "Update version to ${{ github.event.release.tag_name }} for ${{ github.ref }}"
 
