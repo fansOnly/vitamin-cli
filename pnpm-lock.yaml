@@ -20,6 +20,9 @@ importers:
       lint-staged:
         specifier: ^13.2.2
         version: registry.npmmirror.com/lint-staged@13.2.2
+      minimist:
+        specifier: ^1.2.8
+        version: registry.npmmirror.com/minimist@1.2.8
       picocolors:
         specifier: ^1.0.0
         version: registry.npmmirror.com/picocolors@1.0.0
@@ -55,9 +58,6 @@ importers:
       kolorist:
         specifier: ^1.8.0
         version: registry.npmmirror.com/kolorist@1.8.0
-      minimist:
-        specifier: ^1.2.8
-        version: registry.npmmirror.com/minimist@1.2.8
       ora:
         specifier: ^6.3.0
         version: registry.npmmirror.com/ora@6.3.0
