@@ -8,8 +8,9 @@
     "format": "prettier --write --cache .",
     "lint": "eslint --cache .",
     "build": "pnpm -r --filter='./packages/*' run build",
-    "prepublish": "node ./scripts/prepublish.js",
     "release": "node ./scripts/release",
+    "updateVersion": "node ./scripts/updateVersion.js",
+    "prepublishOnly": "zx ./scripts/prepublish.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",

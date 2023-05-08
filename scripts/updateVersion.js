@@ -24,3 +24,5 @@ export const updateVersion = () => {
 
   fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2));
 };
+
+updateVersion();
