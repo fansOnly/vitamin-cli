@@ -22,8 +22,6 @@ const generateChangeLog = async (pkgs) => {
 };
 
 const release = () => {
-  // 更新版本号
-  // updateVersion();
   // 生成更新日志
   generateChangeLog(packages);
 };
