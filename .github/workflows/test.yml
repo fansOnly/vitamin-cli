@@ -2,10 +2,15 @@ name: Test yml
 
 on:
     [pull_request, push]
+# workflow_dispatch: # 手动触发
 
 jobs:
     update:
         runs-on: ubuntu-latest
+
+        permissions:
+            contents: write
+            pull-requests: write
 
         steps:
             - name: Checkout code
