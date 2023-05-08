@@ -1,4 +1,4 @@
-name: Update Package Version
+name: Test yml
 
 on:
     [pull_request]
