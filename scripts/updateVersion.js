@@ -7,18 +7,20 @@ const argv = minimist(process.argv.slice(2));
 
 const cwd = process.cwd();
 
-let newVersion = argv.version;
-
-const pkgJsonPath = path.resolve(cwd, "packages/vitamin-cli/package.json");
-const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath));
-const oldVersion = pkgJson.version;
-pkgJson.version = newVersion || genNewVersion(oldVersion);
-
-fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2));
-
-function genNewVersion(version) {
+const genNewVersion = (version) => {
   return version
     .split(".")
     .map((v, i, arr) => (i === arr.length - 1 ? +v + 1 : v))
     .join(".");
-}
+};
+
+export const updateVersion = () => {
+  let newVersion = argv.version;
+
+  const pkgJsonPath = path.resolve(cwd, "packages/vitamin-cli/package.json");
+  const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath));
+  const oldVersion = pkgJson.version;
+  pkgJson.version = newVersion || genNewVersion(oldVersion);
+
+  fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2));
+};

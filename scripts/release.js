@@ -1,10 +1,11 @@
 import colors from "picocolors";
 import { run } from "./utils.js";
+import { updateVersion } from "./updateVersion.js";
 
 const packages = ["create-demo", "vitamin-cli"];
 
 const generateChangeLog = async (pkgs) => {
-  console.log(colors.cyan("\nGenerating changelog..."));
+  console.log(colors.cyan("Generating changelog..."));
   const changelogArgs = [
     "conventional-changelog",
     "-p",
@@ -21,6 +22,9 @@ const generateChangeLog = async (pkgs) => {
 };
 
 const release = () => {
+  // 更新版本号
+  updateVersion();
+  // 生成更新日志
   generateChangeLog(packages);
 };
 
